@@ -3,11 +3,16 @@ require 'pry'
 require 'sinatra/activerecord'
 require './config/environments'
 require './models/game'
+require './models/stat'
 
 get '/' do
-  'Hello, World!'
+  return {
+    status: '400',
+    message: 'Invalid request, please use defined paths',
+    example: '/games, /teams, /players, /stats'
+  }.to_json
 end
-
+# ALL GAMES
 get '/games' do
   @all_games = Game.all
   if params['week'] == nil then
@@ -44,7 +49,29 @@ get '/games' do
 
   return output_object.to_json
 end
-
+# INDIVIDUAL GAME
 get '/games/{id}' do
-  
+  game_id = params['id']
+  @game = Game.find(game_id)
+  @game_stats = Stat.where(gamecode: @game.gamecode)
+  stat_array = []
+  @game_stats.each do |stat|
+    stat_array << stat.id
+  end
+
+  game_object = {
+    id: @game.id,
+    home: @game.get_team_object(@game.home),
+    away: @game.get_team_object(@game.away),
+    week: @game.week,
+    gamecode: @game.gamecode,
+    _link: "/games/#{@game.id}",
+    game_stat_ids: stat_array
+  }
+
+  return {
+    status: 200,
+    results_count: 1,
+    results: game_object
+  }.to_json
 end
