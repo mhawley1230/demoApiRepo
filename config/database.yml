@@ -1,0 +1,6 @@
+development:
+    adapter: postgresql
+    database: nfl_scraper_development
+    username: postgres
+    password:
+    host: localhost
