@@ -4,6 +4,7 @@ require 'sinatra/activerecord'
 require './config/environments'
 require './models/game'
 require './models/stat'
+require './models/player'
 
 get '/' do
   return {
@@ -57,10 +58,7 @@ get '/games/{id}' do
   if params["stats"] == "true" then
     @game_stats = Stat.where(gamecode: @game.gamecode)
     @game_stats.each do |stat|
-      stat_array << {
-        id: stat.id,
-        _link: "/stats/#{stat.id}"
-        }
+      stat_array << stat.get_stat_object(stat.id)
     end
   else
     stat_array = {
