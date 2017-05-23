@@ -22,6 +22,8 @@ get '/games' do
       message: 'Please provide week parameter in query',
       example: '/games?week=4 OR /games?week=4,5,6'
     }.to_json
+  elsif params['week'] == 'all' then
+    @query_week = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15']
   else
     @query_week = params['week'].split(',')
   end
