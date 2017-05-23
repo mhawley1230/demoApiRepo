@@ -44,3 +44,7 @@ get '/games' do
 
   return output_object.to_json
 end
+
+get '/games/{id}' do
+  
+end
