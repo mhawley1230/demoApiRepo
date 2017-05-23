@@ -53,9 +53,9 @@ end
 get '/games/{id}' do
   game_id = params['id']
   @game = Game.find(game_id)
-  @game_stats = Stat.where(gamecode: @game.gamecode)
   stat_array = []
   if params["stats"] == "true" then
+    @game_stats = Stat.where(gamecode: @game.gamecode)
     @game_stats.each do |stat|
       stat_array << {
         id: stat.id,
