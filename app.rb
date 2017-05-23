@@ -55,8 +55,18 @@ get '/games/{id}' do
   @game = Game.find(game_id)
   @game_stats = Stat.where(gamecode: @game.gamecode)
   stat_array = []
-  @game_stats.each do |stat|
-    stat_array << stat.id
+  if params["stats"] == "true" then
+    @game_stats.each do |stat|
+      stat_array << {
+        id: stat.id,
+        _link: "/stats/#{stat.id}"
+        }
+    end
+  else
+    stat_array = {
+      message: "To include stats, please set stats param to true",
+      example: "/games/#{@game.id}?stats=true"
+      }
   end
 
   game_object = {
@@ -66,7 +76,7 @@ get '/games/{id}' do
     week: @game.week,
     gamecode: @game.gamecode,
     _link: "/games/#{@game.id}",
-    game_stat_ids: stat_array
+    game_stats: stat_array
   }
 
   return {
