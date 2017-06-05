@@ -1,6 +1,11 @@
 class Player < ActiveRecord::Base
-  def get_player_object(size)
-    @player = Player.find(self.id)
+  has_many :stats
+  belongs_to :team
+
+  #UPDATE PLAYER TABLE TO HAVE TEAM IDS NOT NAMES
+
+  def get_player_object(id, size)
+    @player = Player.find(id)
     if size == "full" then
       return {
         id: @player.id,
@@ -18,7 +23,7 @@ class Player < ActiveRecord::Base
         _image_link: @player.image,
         _link: "/players/#{@player.id}"
       }
-    else
+    elsif size == "small"
       return {
         id: @player.id,
         full_name: @player.first_name + " " + @player.last_name,

@@ -1,4 +1,7 @@
 class Stat < ActiveRecord::Base
+  belongs_to :player
+  belongs_to :game
+
   def get_stat_object(input)
     @stat = Stat.find(input)
     return {
