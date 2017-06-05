@@ -1,0 +1,136 @@
+65-79
+
+{
+   "status":200,
+   "results_count":16,
+   "results":[
+      {
+         "id":466,
+         "home":"Atlanta",
+         "away":"Tampa Bay",
+         "week":"1",
+         "gamecode":"20160911001",
+         "_link":"/games/466"
+      },
+      {  
+         "id":468,
+         "home":"Houston",
+         "away":"Chicago",
+         "week":"1",
+         "gamecode":"20160911034",
+         "_link":"/games/468"
+      },
+      {
+         "id":469,
+         "home":"Jacksonville",
+         "away":"Green Bay",
+         "week":"1",
+         "gamecode":"20160911030",
+         "_link":"/games/469"
+      },
+      {
+         "id":470,
+         "home":"Kansas City",
+         "away":"San Diego",
+         "week":"1",
+         "gamecode":"20160911012",
+         "_link":"/games/470"
+      },
+      {
+         "id":471,
+         "home":"New Orleans",
+         "away":"Oakland",
+         "week":"1",
+         "gamecode":"20160911018",
+         "_link":"/games/471"
+      },
+      {
+         "id":476,
+         "home":"Dallas",
+         "away":"New York",
+         "week":"1",
+         "gamecode":"20160911006",
+         "_link":"/games/476"
+      },
+      {
+         "id":473,
+         "home":"Philadelphia",
+         "away":"Cleveland",
+         "week":"1",
+         "gamecode":"20160911021",
+         "_link":"/games/473"
+      },
+      {
+         "id":474,
+         "home":"Tennessee",
+         "away":"Minnesota",
+         "week":"1",
+         "gamecode":"20160911010",
+         "_link":"/games/474"
+      },
+      {
+         "id":475,
+         "home":"Seattle",
+         "away":"Miami",
+         "week":"1",
+         "gamecode":"20160911026",
+         "_link":"/games/475"
+      },
+      {
+         "id":477,
+         "home":"Indianapolis",
+         "away":"Detroit",
+         "week":"1",
+         "gamecode":"20160911011",
+         "_link":"/games/477"
+      },
+      {
+         "id":478,
+         "home":"Arizona",
+         "away":"New England",
+         "week":"1",
+         "gamecode":"20160911022",
+         "_link":"/games/478"
+      },
+      {
+         "id":480,
+         "home":"San Francisco",
+         "away":"Los Angeles",
+         "week":"1",
+         "gamecode":"20160912025",
+         "_link":"/games/480"
+      },
+      {
+         "id":472,
+         "home":"New York",
+         "away":"Cincinnati",
+         "week":"1",
+         "gamecode":"20160911020",
+         "_link":"/games/472"
+      },
+      {
+         "id":467,
+         "home":"Baltimore",
+         "away":"Buffalo",
+         "week":"1",
+         "gamecode":"20160911033",
+         "_link":"/games/467"
+      },
+      {
+         "id":479,
+         "home":"Washington",
+         "away":"Pittsburgh",
+         "week":"1",
+         "gamecode":"20160912028",
+         "_link":"/games/479"
+      },
+      {
+         "id":465,
+         "home":"Denver",
+         "away":"Carolina",
+         "week":"1",
+         "gamecode":"20160908007",
+         "_link":"/games/465"
+      }
+   ]
+}

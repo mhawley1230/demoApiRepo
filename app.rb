@@ -1,6 +1,7 @@
 require 'sinatra'
 require 'pry'
 require 'httparty'
+require 'json'
 require 'sinatra/activerecord'
 require './config/environments'
 require './models/game'
@@ -9,7 +10,11 @@ require './models/player'
 require './models/team'
 #SCRAPER
 get '/scrape' do
-  
+  # response = HTTParty.get("http://localhost:4567/games?week=1")
+  # response = JSON.parse(response)
+  # response["results"].each do |x|
+  #   HTTParty.get("http://localhost:8012/games/#{x["id"]}")
+  # end
 end
 #NO PATH
 get '/' do
