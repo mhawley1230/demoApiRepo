@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="b4131a3e-3809-41df-a14f-b0ec229e7b97" activeEnvironment="Default environment" name="FunctionalDemoProject" lastOpened="2017-05-17T09:38:18.848-04:00" resourceRoot="" soapui-version="6.0.0" defaultScriptLanguage="Groovy" abortOnError="false" runType="SEQUENTIAL" compositeProjectFormat="1.3" xmlns:con="http://eviware.com/soapui/config"><con:settings><con:setting id="Port">8081</con:setting><con:setting id="com.eviware.soapui.impl.wsdl.actions.iface.tools.soapui.ProTestRunnerAction@values-local"><![CDATA[<xml-fragment xmlns:con="http://eviware.com/soapui/config">
+  <con:entry key="Report Format(s)" value=""/>
+  <con:entry key="Host:Port" value=""/>
+  <con:entry key="Export JUnit Results" value="false"/>
+  <con:entry key="Export All" value="false"/>
+  <con:entry key="Save After" value="false"/>
+  <con:entry key="Add Settings" value="false"/>
+  <con:entry key="WSS Password Type" value=""/>
+  <con:entry key="TestSuite" value="REST TestSuite"/>
+  <con:entry key="Endpoint" value=""/>
+  <con:entry key="Select Report Type" value="TestCase Report"/>
+  <con:entry key="System Properties" value=""/>
+  <con:entry key="Run in-process" value="false"/>
+  <con:entry key="Password" value=""/>
+  <con:entry key="Print Report" value="false"/>
+  <con:entry key="Open Report" value="false"/>
+  <con:entry key="Test Case Tags" value=""/>
+  <con:entry key="Export JUnit Results with test properties" value="false"/>
+  <con:entry key="Global Properties" value=""/>
+  <con:entry key="Project Properties" value=""/>
+  <con:entry key="Project Password" value=""/>
+  <con:entry key="TestCase" value="TestCase"/>
+  <con:entry key="Username" value=""/>
+  <con:entry key="user-settings.xml Password" value=""/>
+  <con:entry key="TestRunner Path" value=""/>
+  <con:entry key="Environment" value="Default environment"/>
+  <con:entry key="Coverage Report" value="false"/>
+  <con:entry key="Enable UI" value="false"/>
+  <con:entry key="Root Folder" value=""/>
+  <con:entry key="Ignore Errors" value="false"/>
+  <con:entry key="Domain" value=""/>
+  <con:entry key="Tool Args" value=""/>
+  <con:entry key="Save Project" value="false"/>
+</xml-fragment>]]></con:setting><con:setting id="com.smartbear.swagger.ExportSwaggerAction$FormBase Path"/><con:setting id="com.smartbear.swagger.ExportSwaggerAction$FormTarget Folder">C:\Users\Nathan.Wright\Desktop</con:setting><con:setting id="com.smartbear.swagger.ExportSwaggerAction$FormFormat">json</con:setting><con:setting id="com.smartbear.swagger.ExportSwaggerAction$FormAPI Version">1.0</con:setting><con:setting id="com.smartbear.swagger.ExportSwaggerAction$FormSwagger Version">2.0</con:setting><con:setting id="b4131a3e-3809-41df-a14f-b0ec229e7b97fileName">demoCase-soapui-project</con:setting><con:setting id="com.eviware.soapui.impl.wsdl.actions.iface.tools.support.SecurityTestRunnerAction@values-local"><![CDATA[<xml-fragment xmlns:con="http://eviware.com/soapui/config">
+  <con:entry key="Report Format(s)" value=""/>
+  <con:entry key="Host:Port" value=""/>
+  <con:entry key="Export JUnit Results" value="false"/>
+  <con:entry key="Export All" value="false"/>
+  <con:entry key="Save After" value="false"/>
+  <con:entry key="Add Settings" value="false"/>
+  <con:entry key="WSS Password Type" value=""/>
+  <con:entry key="TestSuite" value="&lt;all>"/>
+  <con:entry key="Endpoint" value=""/>
+  <con:entry key="Select Report Type" value=""/>
+  <con:entry key="System Properties" value=""/>
+  <con:entry key="Password" value=""/>
+  <con:entry key="Print Report" value="false"/>
+  <con:entry key="Open Report" value="false"/>
+  <con:entry key="SecurityTest" value="&lt;all>"/>
+  <con:entry key="Global Properties" value=""/>
+  <con:entry key="Project Properties" value=""/>
+  <con:entry key="SecurityTestRunner Path" value=""/>
+  <con:entry key="Project Password" value=""/>
+  <con:entry key="TestCase" value="&lt;all>"/>
+  <con:entry key="Username" value=""/>
+  <con:entry key="user-settings.xml Password" value=""/>
+  <con:entry key="Environment" value="Default environment"/>
+  <con:entry key="Enable UI" value="false"/>
+  <con:entry key="Root Folder" value=""/>
+  <con:entry key="Ignore Errors" value="false"/>
+  <con:entry key="Domain" value=""/>
+  <con:entry key="Tool Args" value=""/>
+  <con:entry key="Save Project" value="false"/>
+</xml-fragment>]]></con:setting></con:settings><con:vcsConfiguration><con:vcsName>Git</con:vcsName><con:repositoryIdentifier>https://github.com/nate01776/testerRepo.git</con:repositoryIdentifier></con:vcsConfiguration><con:savedRecentRuns>1</con:savedRecentRuns><con:requirements/><con:properties><con:property><con:name>q</con:name><con:value>tester</con:value></con:property></con:properties><con:wssContainer/><con:databaseConnectionContainer><con:databaseConnection><con:name>nfl_db</con:name><con:driver>org.postgresql.Driver</con:driver><con:connectionString>jdbc:postgresql://127.0.0.1:5432/nfl_scraper_development?user=postgres&amp;password=PASS_VALUE</con:connectionString><con:password>postgres</con:password></con:databaseConnection></con:databaseConnectionContainer><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/><con:eventHandlers type="RequestFilter.filterRequest" name="RequestFilter.filterRequest"><con:script>def headers = request.requestHeaders;
+def authHeader = headers["Authentication"];
+
+if (authHeader == null) {
+	headers.put("Authentication", "NEWKEY");
+	request.requestHeaders = headers;
+} else {
+	log.info("skip")
+}
+</con:script></con:eventHandlers><con:environment id="a3cbd45a-80d1-4964-9d66-693b4f883db5" name="TEST"><con:service type="REST" name="http://maps.googleapis.com"><con:endpoint authProfile="Inherit From Parent" username="" password="" domain="" incomingWss="" outgoingWss="" wssTimeToLive="" wssType="">http://localhost:8088/</con:endpoint></con:service><con:service type="SOAP" name="CurrencyConvertorSoap"><con:endpoint authProfile="Inherit From Parent" username="" password="" domain="" incomingWss="" outgoingWss="" wssTimeToLive="" wssType="">http://www.webservicex.com/currencyconvertor.asmx</con:endpoint></con:service><con:service type="SOAP" name="NumberConversionSoapBinding"><con:endpoint authProfile="No Authorization" username="" password="" domain="" incomingWss="" outgoingWss="" wssTimeToLive="" wssType="">http://www.dataaccess.com/webservicesserver/numberconversion.wso</con:endpoint></con:service><con:service type="SOAP" name="NumberConversionSoapBinding12"><con:endpoint authProfile="Inherit From Parent" username="" password="" domain="" incomingWss="" outgoingWss="" wssTimeToLive="" wssType="">http://www.dataaccess.com/webservicesserver/numberconversion.wso</con:endpoint></con:service><con:service type="REST" name="http://maps.googleapis.com 1"><con:endpoint authProfile="Inherit From Parent" username="" password="" domain="" incomingWss="" outgoingWss="" wssTimeToLive="" wssType="">http://maps.googleapis.com</con:endpoint></con:service><con:service type="SOAP" name="CurrencyConvertorSoap12"><con:endpoint authProfile="Inherit From Parent"/></con:service><con:property><con:name>q</con:name><con:value>Chicago</con:value></con:property><con:property><con:name>q</con:name><con:value/></con:property><con:databaseConnectionContainer><con:databaseConnection><con:name>nfl_db</con:name><con:driver>org.postgresql.Driver</con:driver><con:connectionString>jdbc:postgresql://127.0.0.1:5432/nfl_scraper_development?user=postgres&amp;password=PASS_VALUE</con:connectionString><con:password>postgres</con:password></con:databaseConnection></con:databaseConnectionContainer></con:environment><con:environment id="e8f7c5ca-2ede-44ed-ba08-b7afcd3d78cd" name="UAT"><con:service type="REST" name="http://maps.googleapis.com"><con:endpoint authProfile="Inherit From Parent" username="" password="" domain="" incomingWss="" outgoingWss="" wssTimeToLive="" wssType="">http://localhost:8088/</con:endpoint></con:service><con:service type="SOAP" name="CurrencyConvertorSoap"><con:endpoint authProfile="Inherit From Parent" username="" password="" domain="" incomingWss="" outgoingWss="" wssTimeToLive="" wssType="">http://www.webservicex.com/currencyconvertor.asmx</con:endpoint></con:service><con:service type="SOAP" name="NumberConversionSoapBinding"><con:endpoint authProfile="No Authorization" username="" password="" domain="" incomingWss="" outgoingWss="" wssTimeToLive="" wssType="">http://www.dataaccess.com/webservicesserver/numberconversion.wso</con:endpoint></con:service><con:service type="SOAP" name="NumberConversionSoapBinding12"><con:endpoint authProfile="Inherit From Parent" username="" password="" domain="" incomingWss="" outgoingWss="" wssTimeToLive="" wssType="">http://www.dataaccess.com/webservicesserver/numberconversion.wso</con:endpoint></con:service><con:service type="REST" name="http://maps.googleapis.com 1"><con:endpoint authProfile="Inherit From Parent" username="" password="" domain="" incomingWss="" outgoingWss="" wssTimeToLive="" wssType="">http://maps.googleapis.com</con:endpoint></con:service><con:service type="SOAP" name="CurrencyConvertorSoap12"><con:endpoint authProfile="Inherit From Parent"/></con:service><con:property><con:name>q</con:name><con:value/></con:property><con:databaseConnectionContainer><con:databaseConnection><con:name>nfl_db</con:name><con:driver>org.postgresql.Driver</con:driver><con:connectionString>jdbc:postgresql://127.0.0.1:5432/nfl_scraper_development?user=postgres&amp;password=PASS_VALUE</con:connectionString><con:password>postgres</con:password></con:databaseConnection></con:databaseConnectionContainer></con:environment><con:environment id="16d80286-489a-4f41-bb10-fb215122172e" name="TESTWWO"><con:service type="REST" name="http://maps.googleapis.com"><con:endpoint authProfile="Inherit From Parent" username="" password="" domain="" incomingWss="" outgoingWss="" wssTimeToLive="" wssType="" proxyHost="" proxyPort="" proxyUsername="" proxyPassword="">http://localhost:8087/</con:endpoint></con:service><con:service type="SOAP" name="CurrencyConvertorSoap"><con:endpoint authProfile="Inherit From Parent" username="" password="" domain="" incomingWss="" outgoingWss="" wssTimeToLive="" wssType="">http://www.webservicex.com/currencyconvertor.asmx</con:endpoint></con:service><con:service type="SOAP" name="NumberConversionSoapBinding"><con:endpoint authProfile="No Authorization" username="" password="" domain="" incomingWss="" outgoingWss="" wssTimeToLive="" wssType="">http://www.dataaccess.com/webservicesserver/numberconversion.wso</con:endpoint></con:service><con:service type="SOAP" name="NumberConversionSoapBinding12"><con:endpoint authProfile="Inherit From Parent" username="" password="" domain="" incomingWss="" outgoingWss="" wssTimeToLive="" wssType="">http://www.dataaccess.com/webservicesserver/numberconversion.wso</con:endpoint></con:service><con:service type="REST" name="http://maps.googleapis.com 1"><con:endpoint authProfile="Inherit From Parent" username="" password="" domain="" incomingWss="" outgoingWss="" wssTimeToLive="" wssType="">http://maps.googleapis.com</con:endpoint></con:service><con:service type="SOAP" name="CurrencyConvertorSoap12"><con:endpoint authProfile="Inherit From Parent" username="" password="" domain="" incomingWss="" outgoingWss="" wssTimeToLive="" wssType="">http://localhost:8088/</con:endpoint></con:service><con:property><con:name>q</con:name><con:value>tester</con:value></con:property><con:databaseConnectionContainer><con:databaseConnection><con:name>nfl_db</con:name><con:driver>org.postgresql.Driver</con:driver><con:connectionString>jdbc:postgresql://127.0.0.1:5432/nfl_scraper_development?user=postgres&amp;password=PASS_VALUE</con:connectionString><con:password>postgres</con:password></con:databaseConnection></con:databaseConnectionContainer></con:environment><con:authRepository><con:basicAuthEntry><con:name>admin</con:name><con:type>Basic</con:type><con:username>admin</con:username><con:password>pass</con:password></con:basicAuthEntry></con:authRepository><con:tags/></con:soapui-project>
