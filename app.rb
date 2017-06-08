@@ -10,11 +10,10 @@ require './models/player'
 require './models/team'
 #SCRAPER
 get '/scrape' do
-  # response = HTTParty.get("http://localhost:4567/games?week=1")
-  # response = JSON.parse(response)
-  # response["results"].each do |x|
-  #   HTTParty.get("http://localhost:8012/games/#{x["id"]}")
-  # end
+  response = HTTParty.get("http://localhost:8012/teams?name=Patriots")
+  response["results"]["team_players"].each do |x|
+    binding.pry
+  end
 end
 #NO PATH
 get '/' do
@@ -118,11 +117,8 @@ get '/players' do
       end
     end
   else
-    @all_players.each do |player|
-      if player.position != nil && player.current_team == params['team']
-        @players_object << player
-      end
-    end
+    @team = Team.find(params['team'])
+    @players_object = @team.players
   end
   return {
     status: 200,
@@ -184,7 +180,8 @@ get '/teams' do
           location: team.location,
           name: team.name,
           full_name: "#{team.location} #{team.name}",
-          _link: "/teams/#{team.id}"
+          _link: "/teams/#{team.id}",
+          team_players: Player.where(team_id: team.id)
         }
         @response_array << team_object
       end
