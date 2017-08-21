@@ -10,13 +10,15 @@ require './models/player'
 require './models/team'
 #SCRAPER
 get '/scrape' do
-  response = HTTParty.get("http://localhost:8012/teams?name=Patriots")
-  response["results"]["team_players"].each do |x|
-    binding.pry
-  end
+  # response = HTTParty.get("http://localhost:8012/teams?name=Patriots")
+  # response["results"]["team_players"].each do |x|
+  #   binding.pry
+  # end
 end
 #NO PATH
 get '/' do
+  status 400
+  content_type :json
   return {
     status: '400',
     message: 'Invalid request, please use defined paths',
@@ -25,8 +27,10 @@ get '/' do
 end
 # ALL GAMES
 get '/games' do
+  content_type :json
   @all_games = Game.all
   if params['week'] == nil then
+    status 400
     return {
       status: '400',
       message: 'Please provide week parameter in query',
@@ -46,7 +50,7 @@ get '/games' do
           id: game.id,
           home: game.home,
           away: game.away,
-          week: game.week,
+          week: game.week.to_i,
           gamecode: game.gamecode,
           _link: "/games/#{game.id}"
         }
@@ -64,6 +68,7 @@ get '/games' do
 end
 # INDIVIDUAL GAME
 get '/games/{id}' do
+  content_type :json
   game_id = params['id']
   @game = Game.find(game_id)
   @home_team = Team.find(@game.home_id)
@@ -102,6 +107,7 @@ get '/games/{id}' do
 end
 
 get '/players' do
+  content_type :json
   @all_players = Player.all
   @players_object = []
   if params['team'] == nil then
@@ -128,6 +134,7 @@ get '/players' do
 end
 
 get '/players/{id}' do
+  content_type :json
   @player = Player.find(params['id'])
   return {
     status: 200,
@@ -147,6 +154,7 @@ get '/players/{id}' do
 end
 
 get '/teams' do
+  content_type :json
   @all_teams = Team.all
   @response_array = []
   if params['name'] == nil && params['location'] == nil then
@@ -208,6 +216,7 @@ get '/teams' do
 end
 
 get '/teams/{id}' do
+  content_type :json
   @team = Team.find(params['id'])
   team_object = {
     id: @team.id,

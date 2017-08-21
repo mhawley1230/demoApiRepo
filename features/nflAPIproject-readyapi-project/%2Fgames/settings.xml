@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testSuite id="cb0733e5-e307-483a-9995-ed47276231dd" name="/games" xmlns:con="http://eviware.com/soapui/config"><con:settings><con:setting id="cb0733e5-e307-483a-9995-ed47276231ddfileName">%2Fgames</con:setting></con:settings><con:runType>SEQUENTIAL</con:runType><con:properties/><con:reportParameters/></con:testSuite>
