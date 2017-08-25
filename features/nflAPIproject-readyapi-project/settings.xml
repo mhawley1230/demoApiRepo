@@ -32,4 +32,4 @@
   <con:entry key="Domain" value=""/>
   <con:entry key="Tool Args" value=""/>
   <con:entry key="Save Project" value="false"/>
-</xml-fragment>]]></con:setting></con:settings><con:requirements/><con:properties/><con:wssContainer/><con:databaseConnectionContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/><con:reporting/><con:authRepository/><con:tags/></con:soapui-project>
+</xml-fragment>]]></con:setting><con:setting id="fde81900-8b1f-452b-8fb5-20087ba405f3fileName">nflAPIproject-readyapi-project</con:setting></con:settings><con:requirements/><con:properties/><con:wssContainer/><con:databaseConnectionContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/><con:authRepository/><con:tags/></con:soapui-project>
