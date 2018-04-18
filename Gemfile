@@ -7,3 +7,4 @@ gem 'pg'
 gem 'httparty'
 gem 'json'
 gem 'cucumber'
+gem 'sinatra-cross_origin', "~> 0.3.1"

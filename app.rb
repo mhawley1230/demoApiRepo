@@ -8,6 +8,7 @@ require './models/game'
 require './models/stat'
 require './models/player'
 require './models/team'
+
 #SCRAPER
 get '/scrape' do
   # response = HTTParty.get("http://localhost:8012/teams?name=Patriots")
@@ -17,6 +18,7 @@ get '/scrape' do
 end
 #NO PATH
 get '/' do
+  response.headers['Access-Control-Allow-Origin'] = '*'
   status 400
   content_type :json
   return {
@@ -27,6 +29,7 @@ get '/' do
 end
 # ALL GAMES
 get '/games' do
+  response.headers['Access-Control-Allow-Origin'] = '*'
   content_type :json
   @all_games = Game.all
   if params['week'] == nil then
@@ -68,6 +71,7 @@ get '/games' do
 end
 # INDIVIDUAL GAME
 get '/games/{id}' do
+  response.headers['Access-Control-Allow-Origin'] = '*'
   content_type :json
   game_id = params['id']
   @game = Game.find(game_id)
@@ -107,6 +111,7 @@ get '/games/{id}' do
 end
 
 get '/players' do
+  response.headers['Access-Control-Allow-Origin'] = '*'
   content_type :json
   @all_players = Player.all
   @players_object = []
@@ -134,6 +139,7 @@ get '/players' do
 end
 
 get '/players/{id}' do
+  response.headers['Access-Control-Allow-Origin'] = '*'
   content_type :json
   @player = Player.find(params['id'])
   return {
@@ -154,6 +160,7 @@ get '/players/{id}' do
 end
 
 get '/teams' do
+  response.headers['Access-Control-Allow-Origin'] = '*'
   content_type :json
   @all_teams = Team.all
   @response_array = []
@@ -216,6 +223,7 @@ get '/teams' do
 end
 
 get '/teams/{id}' do
+  response.headers['Access-Control-Allow-Origin'] = '*'
   content_type :json
   @team = Team.find(params['id'])
   team_object = {
