@@ -9,6 +9,8 @@ require './models/stat'
 require './models/player'
 require './models/team'
 
+set :bind, '0.0.0.0'
+
 #SCRAPER
 get '/scrape' do
   # response = HTTParty.get("http://localhost:8012/teams?name=Patriots")
