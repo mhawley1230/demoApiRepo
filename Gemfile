@@ -1,9 +1,10 @@
 source 'https://rubygems.org'
 
-gem 'sinatra'
+gem 'sinatra', '~> 2.0.1'
 gem 'activerecord'
 gem 'sinatra-activerecord'
 gem 'pg'
 gem 'httparty'
 gem 'json'
 gem 'cucumber'
+gem 'sinatra-cors', '~> 1.1'
