@@ -242,3 +242,5 @@ get '/teams/{id}' do
     results: team_object
   }.to_json
 end
+
+# pg_restore -c  -d nfl_scraper_development -v "./nflbackup.tar"
