@@ -40,3 +40,9 @@ This will unpack the tarball that is in the repository, create the correct table
 ```sh
   $ ruby app.rb
 ```
+
+### Test the server
+```sh
+  curl localhost:4567/games?week=all
+```
+This call should return 224 results
