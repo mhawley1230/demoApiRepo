@@ -25,8 +25,8 @@
 ### Install dependencies
 ```sh
   $ gem install bundler
-  $ bundler install
-  $ bundler update
+  $ bundle install
+  $ bundle update
 ```
 
 ### Populate DB w/scraped values
