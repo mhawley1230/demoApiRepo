@@ -1,0 +1,268 @@
+---
+swagger: "2.0"
+info:
+  description: "post and pull employees from the DB"
+  version: "1.0.1"
+  title: "HR API"
+paths:
+  /users:
+    get:
+      description: "Allows users to get employees"
+      operationId: "usersGET"
+      parameters:
+      - name: "UUID"
+        in: "query"
+        description: "UUID number of employee"
+        required: true
+        type: "string"
+      - name: "first_name"
+        in: "query"
+        description: "Users first name"
+        required: false
+        type: "string"
+      - name: "last_name"
+        in: "query"
+        description: "Users last name"
+        required: false
+        type: "string"
+      responses:
+        200:
+          description: "OK"
+          schema:
+            type: "object"
+            properties:
+              status:
+                type: "integer"
+                example: 200
+                description: "Status code"
+              UUID:
+                type: "string"
+                format: "uuid"
+                example: "3110-78-8832"
+                description: "ID from DB"
+              first_name:
+                type: "string"
+                example: "James"
+                description: "Users first name"
+              last_name:
+                type: "string"
+                example: "Stevens"
+                description: "Users last name"
+              email:
+                type: "string"
+                example: "j_stevens@sb.com"
+                description: "Users email"
+              join_date:
+                type: "string"
+                example: "1511884800"
+                description: "Unix timestamp of user posted to DB"
+        404:
+          description: "Bad Request"
+          schema:
+            $ref: "#/definitions/404Response"
+      x-swagger-router-controller: "Default"
+    post:
+      description: "Allows user to submit user data to the DB"
+      operationId: "usersPOST"
+      parameters:
+      - in: "body"
+        name: "employee"
+        description: "Creates a new employee in DB"
+        required: false
+        schema:
+          $ref: "#/definitions/employee_1"
+      responses:
+        200:
+          description: "OK"
+          schema:
+            type: "object"
+            properties:
+              status:
+                type: "integer"
+                example: 200
+                description: "status code"
+              UUID:
+                type: "string"
+                format: "uuid"
+                example: "3110-79-8833"
+                description: "ID from DB"
+              first_name:
+                type: "string"
+                example: "Peter"
+                description: "Users first name"
+              last_name:
+                type: "string"
+                example: "Richards"
+                description: "Users last name"
+              email:
+                type: "string"
+                example: "p_richards@sb.com"
+                description: "Users email"
+              join_date:
+                type: "string"
+                example: "1512655200"
+                description: "Unix timestamp of user posted to DB"
+        404:
+          description: "Bad Request"
+          schema:
+            $ref: "#/definitions/404Response"
+      x-swagger-router-controller: "Default"
+    put:
+      description: "Allows users to update user data to the DB"
+      operationId: "usersPUT"
+      parameters:
+      - in: "body"
+        name: "employee"
+        description: "Updates an employee in DB"
+        required: false
+        schema:
+          $ref: "#/definitions/employee"
+      responses:
+        200:
+          description: "resource successfully added"
+          schema:
+            type: "object"
+            properties:
+              status:
+                type: "integer"
+                example: 200
+                description: "status code"
+              message:
+                type: "string"
+                example: "resource successfully added"
+                description: "success message"
+      x-swagger-router-controller: "Default"
+definitions:
+  404Response:
+    type: "object"
+    properties:
+      status:
+        type: "integer"
+        example: 404
+        description: "Status code"
+      message:
+        type: "string"
+        example: "Bad Request"
+        description: "Error message"
+  inline_response_200:
+    properties:
+      status:
+        type: "integer"
+        example: 200
+        description: "Status code"
+      UUID:
+        type: "string"
+        format: "uuid"
+        example: "3110-78-8832"
+        description: "ID from DB"
+      first_name:
+        type: "string"
+        example: "James"
+        description: "Users first name"
+      last_name:
+        type: "string"
+        example: "Stevens"
+        description: "Users last name"
+      email:
+        type: "string"
+        example: "j_stevens@sb.com"
+        description: "Users email"
+      join_date:
+        type: "string"
+        example: "1511884800"
+        description: "Unix timestamp of user posted to DB"
+    example:
+      join_date: "1511884800"
+      last_name: "Stevens"
+      UUID: "3110-78-8832"
+      first_name: "James"
+      email: "j_stevens@sb.com"
+      status: 200
+  employee:
+    type: "object"
+    required:
+    - "email"
+    properties:
+      userUUid:
+        type: "string"
+        format: "uuid"
+        example: "113a3d8d-ddac-4b0f-9f16-15123512"
+        description: "ID from DB"
+      firstName:
+        type: "string"
+        example: "michael"
+        description: "users first name"
+      lastName:
+        type: "string"
+        example: "hawley"
+      email:
+        type: "string"
+        format: "email"
+        example: "michael.hawley@smartbear.com"
+        description: "user email from DB"
+  inline_response_200_1:
+    properties:
+      status:
+        type: "integer"
+        example: 200
+        description: "status code"
+      message:
+        type: "string"
+        example: "resource successfully added"
+        description: "success message"
+    example:
+      message: "resource successfully added"
+      status: 200
+  employee_1:
+    type: "object"
+    properties:
+      first_name:
+        type: "string"
+        example: "Peter"
+        description: "Users first name"
+      last_name:
+        type: "string"
+        example: "Richards"
+        description: "Users last name"
+      email:
+        type: "string"
+        example: "p_richards@sb.com"
+        description: "Users email"
+      join_date:
+        type: "string"
+        example: "1512655200"
+        description: "Unix timestamp of user posted to DB"
+  inline_response_200_2:
+    properties:
+      status:
+        type: "integer"
+        example: 200
+        description: "status code"
+      UUID:
+        type: "string"
+        format: "uuid"
+        example: "3110-79-8833"
+        description: "ID from DB"
+      first_name:
+        type: "string"
+        example: "Peter"
+        description: "Users first name"
+      last_name:
+        type: "string"
+        example: "Richards"
+        description: "Users last name"
+      email:
+        type: "string"
+        example: "p_richards@sb.com"
+        description: "Users email"
+      join_date:
+        type: "string"
+        example: "1512655200"
+        description: "Unix timestamp of user posted to DB"
+    example:
+      join_date: "1512655200"
+      last_name: "Richards"
+      UUID: "3110-79-8833"
+      first_name: "Peter"
+      email: "p_richards@sb.com"
+      status: 200
